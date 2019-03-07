@@ -1,0 +1,13 @@
+.grid {
+    display: grid;
+    grid-template: auto auto auto auto auto / 1fr 1fr 1fr 1fr 1fr;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    width: 95%;
+}
+
+section {
+    width: 18vw;
+    height: 18vw;
+    padding: .1vw;
+}
