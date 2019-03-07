@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="/styles.css" />
+    <title>Tile Coloring</title>
+</head>
+
+<body>
+    <h1>Click on the tiles to change their color. Enjoy!</h1>
+    <div id="app">
+
+        <template v-if="color_array.length > 0">
+
+            <div class="grid">
+                <div v-for="element in color_array">
+                    <section v-bind:style="{'background-color': element.color }" v-on:click="rotateColor(element)">
+                        <p></p>
+                    </section>
+                </div>
+            </div>
+        </template>
+        <div v-else>
+            <p>LOADING</p>
+        </div>
+    </div>
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.2/dist/vue.js"></script>
+<script src="/script.js"></script>
+<footer>
+    <p class="center">My GitHub Repository: <a href="https://github.com/BYU-CS-260-Winter-2019/lab-3-ketaold">Lab 3</a></p>
+</footer>
+
+</html>
