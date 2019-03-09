@@ -21,10 +21,10 @@ let app = new Vue({
         initialize() {
             console.log("initialize");
             this.tempIndex = -1;
-            this.grid_rows = 5;
-            this.grid_columns = 5;
-            this.tile_width = '19vw';
-            this.column_form = 'auto auto auto auto auto / 1fr 1fr 1fr 1fr 1fr';
+            this.grid_rows = 10;
+            this.grid_columns = 10;
+            this.tile_width = '8.5vw';
+            this.column_form = 'auto auto auto auto auto / 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr';
             this.next_index = 0;
             this.grid_size = this.grid_rows * this.grid_columns;
             this.color_keys = ["white", "black"];
