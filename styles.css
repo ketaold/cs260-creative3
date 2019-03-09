@@ -3,11 +3,39 @@
     grid-template: auto auto auto auto auto / 1fr 1fr 1fr 1fr 1fr;
     grid-column-gap: 10px;
     grid-row-gap: 10px;
-    width: 95%;
+    width: 100%;
+    align-self: center;
 }
 
 section {
-    width: 18vw;
-    height: 18vw;
     padding: .1vw;
+}
+
+input {
+    margin-left: 1vw;
+}
+
+body {
+    font-family: 'Cuprum', sans-serif;
+    background-color: #cccccc;
+}
+
+footer {
+    font-family: 'Cuprum', sans-serif;
+}
+
+h1 {
+    text-align: center;
+}
+
+h2 {
+    margin-left: 1vw;
+}
+
+form {
+    padding-bottom: 1vw;
+}
+
+button {
+    margin-left: 1vw;
 }

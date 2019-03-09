@@ -3,19 +3,33 @@
 
 <head>
     <link rel="stylesheet" href="/styles.css" />
+    <link href="https://fonts.googleapis.com/css?family=Cuprum" rel="stylesheet">
     <title>Tile Coloring</title>
 </head>
 
 <body>
-    <h1>Click on the tiles to change their color. Enjoy!</h1>
+    <h1>Coloring with Tiles </h1>
     <div id="app">
 
         <template v-if="color_array.length > 0">
-
-            <div class="grid">
+            <form v-on:submit.prevent="addColor">
+                <h2>Enter the color you want to add to your tile color options (e.g. blue), or select buttons for default options.</h2>
+                <input type="text" v-model="new_color">
+                <button type="submit">Add Color</button>
+            </form>
+            <form v-on:submit.prevent="setDefault">
+                <button type="submit">Default Colors</button>
+            </form>
+            <form v-on:submit.prevent="changeDimens">
+                <h2>Enter the desired number of tiles per row (e.g. 5)</h2>
+                <input type="text" v-model="new_dimens">
+                <button type="submit">Change dimensions</button>
+            </form>
+            <h2>Click on the tiles to change their color. Enjoy!</h2>
+            <div class="grid" v-bind:style="{'grid-template': column_form}">
                 <div v-for="element in color_array">
-                    <section v-bind:style="{'background-color': element.color }" v-on:click="rotateColor(element)">
-                        <p></p>
+                    <section v-bind:style="{'background-color': element.color, 'width' : tile_width, 'height': tile_width }" v-on:click="rotateColor(element)">
+                        <h2> </h2>
                     </section>
                 </div>
             </div>
@@ -29,7 +43,7 @@
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.2/dist/vue.js"></script>
 <script src="/script.js"></script>
 <footer>
-    <p class="center">My GitHub Repository: <a href="https://github.com/BYU-CS-260-Winter-2019/lab-3-ketaold">Lab 3</a></p>
+    <p class="center">My GitHub Repository: <a href="https://github.com/ketaold/cs260-creative3">Creative Project 3</a></p>
 </footer>
 
 </html>

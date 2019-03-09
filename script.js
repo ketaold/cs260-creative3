@@ -2,12 +2,14 @@ let app = new Vue({
     el: '#app',
     data: {
         new_color: '',
+        new_dimens: '',
+        column_form: '',
+        tile_width: '',
         grid_rows: '',
         grid_size: '',
         grid_rows: '',
         color_array: [],
-        color_keys: [],
-        next_index: ''
+        color_keys: []
     },
     created() {
         this.initialize();
@@ -21,9 +23,11 @@ let app = new Vue({
             this.tempIndex = -1;
             this.grid_rows = 5;
             this.grid_columns = 5;
+            this.tile_width = '19vw';
+            this.column_form = 'auto auto auto auto auto / 1fr 1fr 1fr 1fr 1fr';
             this.next_index = 0;
             this.grid_size = this.grid_rows * this.grid_columns;
-            this.color_keys = ["black", "green", "blue"];
+            this.color_keys = ["white", "black"];
             for (i = 0; i < this.grid_size; i++) {
                 this.color_array.push({
                     index: i,
@@ -47,14 +51,30 @@ let app = new Vue({
 
         },
         addColor() {
-            this.color_array.push({
-                index: this.next_index,
-                color: this.new_color
-            });
+            this.color_keys.push(this.new_color);
             this.new_color = '';
-            this.next_index++;
         },
-
+        changeDimens() {
+            this.grid_rows = this.new_dimens;
+            this.grid_columns = this.new_dimens;
+            this.grid_size = this.grid_rows * this.grid_columns;
+            this.color_array = [];
+            for (i = 0; i < this.grid_size; i++) {
+                this.color_array.push({
+                    index: i,
+                    color: this.color_keys[0]
+                });
+            }
+            this.tile_width = 95 / this.grid_rows + 'vw';
+            this.column_form = 'auto auto auto auto auto / ';
+            for (i = 0; i < this.grid_rows; i++) {
+                this.column_form = this.column_form.concat(' 1fr')
+            }
+            this.new_dimens = '';
+        },
+        setDefault() {
+            this.color_keys = ["red", "orange", "yellow", "lime", "green", "lightblue", "blue", "purple", "black", "gray", "white"]
+        }
     }
 
 })
